@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { DataService } from '@/lib/data-service';
 import { Shield, Target, Compass, Award, CheckCircle2, ArrowRight } from 'lucide-react';
+import { getImagePath } from '@/lib/image-path';
 
 export const metadata = {
   title: 'À Propos de TRABAF Construction Tunisie | Expertise & Valeurs',
@@ -39,16 +40,16 @@ export default function AboutPage() {
     <div className="bg-slate-900 text-white min-h-screen">
       {/* Page Header Banner */}
       <section className="relative py-20 bg-[#0E2E5C] border-b border-[#F5B800]/30 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-25">
           <Image
-            src="/images/hero_banner.jpg"
+            src={getImagePath('/images/hero_bg.png')}
             alt="Chantier TRABAF"
             fill
             className="object-cover"
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#18437E] text-[#F5B800] text-xs font-extrabold uppercase tracking-widest">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-[#18437E] text-[#F5B800] text-xs font-extrabold uppercase tracking-widest border border-[#F5B800]/30">
             Présentation Institutionnelle
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
@@ -87,12 +88,14 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="relative h-[380px] rounded-2xl overflow-hidden shadow-2xl border-4 border-[#18437E]">
+          {/* Official Engineering & Construction Office Image */}
+          <div className="relative h-[480px] sm:h-[540px] rounded-2xl overflow-hidden shadow-2xl border-4 border-[#F5B800]/40">
             <Image
-              src="/images/hero_bg.png"
-              alt="TRABAF Bâtiment"
+              src={getImagePath('/images/about_engineering.png')}
+              alt="Ingénierie & Chantier TRABAF Construction"
               fill
-              className="object-cover"
+              className="object-cover object-top"
+              priority
             />
           </div>
         </div>
