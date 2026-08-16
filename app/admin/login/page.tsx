@@ -2,44 +2,32 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { loginSchema, LoginFormData } from '@/lib/validations';
 import { TrabafLogo } from '@/components/ui/TrabafLogo';
 import { DataService } from '@/lib/data-service';
-import { Lock, Mail, AlertCircle, Loader2, ArrowLeft } from 'lucide-react';
+import { Lock, AlertCircle, Loader2, ArrowLeft, KeyRound } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AdminLoginPage() {
   const router = useRouter();
+  const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<LoginFormData>({
-    resolver: zodResolver(loginSchema),
-    defaultValues: {
-      email: 'admin@trabaf.tn',
-      password: ''
-    }
-  });
-
-  const onSubmit = async (data: LoginFormData) => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     setIsSubmitting(true);
     setErrorMsg(null);
 
-    try {
-      // Authenticate via Supabase or Local Master Key for administration
-      DataService.setAdminLoggedIn(true);
-      router.push('/admin/dashboard');
-    } catch {
-      setErrorMsg('Email ou mot de passe incorrect.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    setTimeout(() => {
+      // Check password (trabaf123)
+      if (password.trim() === 'trabaf123') {
+        DataService.setAdminLoggedIn(true);
+        router.push('/admin/dashboard');
+      } else {
+        setErrorMsg('Mot de passe incorrect. Le mot de passe requis est : trabaf123');
+        setIsSubmitting(false);
+      }
+    }, 400);
   };
 
   return (
@@ -52,72 +40,61 @@ export default function AdminLoginPage() {
         {/* Logo */}
         <div className="text-center flex flex-col items-center space-y-2">
           <TrabafLogo height={52} width={200} />
-          <span className="text-xs font-bold uppercase tracking-widest text-[#F5B800] pt-2">
-            Espace d&apos;Administration
-          </span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#18437E] text-[#F5B800] text-xs font-extrabold uppercase tracking-widest mt-2 border border-[#F5B800]/30">
+            <KeyRound className="w-3.5 h-3.5" />
+            <span>Accès Administration</span>
+          </div>
         </div>
 
         {errorMsg && (
-          <div className="bg-rose-950/80 border border-rose-500/50 p-3 rounded-xl text-rose-200 text-xs flex items-center gap-2">
+          <div className="bg-rose-950/80 border border-rose-500/50 p-3.5 rounded-xl text-rose-200 text-xs flex items-center gap-2">
             <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
             <span>{errorMsg}</span>
           </div>
         )}
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          {/* Email */}
+        <form onSubmit={handleSubmit} className="space-y-5">
+          {/* Single Password Field */}
           <div>
-            <label className="block text-xs font-bold text-slate-200 mb-1">
-              Adresse Email Administrateur
+            <label className="block text-xs font-bold text-slate-200 mb-2">
+              Mot de passe Admin
             </label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-              <input
-                type="email"
-                placeholder="admin@trabaf.tn"
-                {...register('email')}
-                className="w-full bg-[#081B38] border border-[#18437E] focus:border-[#F5B800] rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none"
-              />
-            </div>
-            {errors.email && <p className="text-xs text-rose-400 mt-1">{errors.email.message}</p>}
-          </div>
-
-          {/* Password */}
-          <div>
-            <label className="block text-xs font-bold text-slate-200 mb-1">
-              Mot de Passe Securisé
-            </label>
-            <div className="relative">
-              <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Lock className="w-4 h-4 text-[#F5B800] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="password"
-                placeholder="••••••••"
-                {...register('password')}
-                className="w-full bg-[#081B38] border border-[#18437E] focus:border-[#F5B800] rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none"
+                placeholder="Entrez trabaf123"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="w-full bg-[#081B38] border-2 border-[#18437E] focus:border-[#F5B800] rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors"
               />
             </div>
-            {errors.password && <p className="text-xs text-rose-400 mt-1">{errors.password.message}</p>}
+            <p className="text-[11px] text-slate-400 mt-1.5 flex items-center gap-1">
+              <span>Mot de passe unique :</span>
+              <code className="text-[#F5B800] font-mono bg-black/40 px-1.5 py-0.5 rounded">trabaf123</code>
+            </p>
           </div>
 
           {/* Submit */}
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center justify-center gap-2 w-full bg-[#F5B800] hover:bg-[#D9A300] text-[#081B38] font-black py-3.5 px-6 rounded-xl shadow-lg transition-all text-sm disabled:opacity-50 mt-2"
+            className="inline-flex items-center justify-center gap-2 w-full bg-[#F5B800] hover:bg-[#D9A300] text-[#081B38] font-black py-3.5 px-6 rounded-xl shadow-lg transition-all text-sm disabled:opacity-50"
           >
             {isSubmitting ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                <span>Connexion en cours...</span>
+                <span>Vérification...</span>
               </>
             ) : (
-              <span>Se Connecter au Dashboard</span>
+              <span>Accéder au Dashboard</span>
             )}
           </button>
         </form>
 
         <div className="pt-4 border-t border-[#18437E] flex justify-between items-center text-xs">
-          <Link href="/" className="text-slate-400 hover:text-[#F5B800] flex items-center gap-1">
+          <Link href="/" className="text-slate-400 hover:text-[#F5B800] flex items-center gap-1 transition-colors">
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Retour au site public</span>
           </Link>
