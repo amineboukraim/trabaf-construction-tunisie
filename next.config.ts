@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: '/trabaf-construction-tunisie'
+  basePath: '/trabaf-construction-tunisie',
+  assetPrefix: '/trabaf-construction-tunisie/'
 };
 
 export default nextConfig;
