@@ -44,9 +44,9 @@ export function Hero() {
               <span>Construction & Piscines Sur Mesure en Tunisie</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
-              TRABAF: Bâtir Vos Rêves,{' '}
+              TRABAF:{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5B800] via-[#FFD700] to-yellow-200">
-                Créer Votre Oasis.
+                Bâtir Vos Rêves.
               </span>
             </h1>
             <p className="mt-3 text-slate-300 text-base max-w-3xl">
