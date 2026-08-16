@@ -88,15 +88,18 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Official Engineering & Construction Office Image */}
-          <div className="relative h-[480px] sm:h-[540px] rounded-2xl overflow-hidden shadow-2xl border-4 border-[#F5B800]/40">
-            <Image
-              src={getImagePath('/images/about_engineering.png')}
-              alt="Ingénierie & Chantier TRABAF Construction"
-              fill
-              className="object-cover object-top"
-              priority
-            />
+          {/* Official Engineering & Construction Office Image — FULL DISPLAY UNCROPPED */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border-4 border-[#F5B800]/50 bg-[#081B38]">
+              <Image
+                src={getImagePath('/images/about_engineering.png')}
+                alt="Ingénierie & Chantier TRABAF Construction"
+                width={540}
+                height={960}
+                className="w-full h-auto object-contain block"
+                priority
+              />
+            </div>
           </div>
         </div>
 
