@@ -19,12 +19,12 @@ export default function AdminLoginPage() {
     setErrorMsg(null);
 
     setTimeout(() => {
-      // Check password (trabaf123)
+      // Check secret password
       if (password.trim() === 'trabaf123') {
         DataService.setAdminLoggedIn(true);
         router.push('/admin/dashboard');
       } else {
-        setErrorMsg('Mot de passe incorrect. Le mot de passe requis est : trabaf123');
+        setErrorMsg('Mot de passe incorrect.');
         setIsSubmitting(false);
       }
     }, 400);
@@ -63,17 +63,13 @@ export default function AdminLoginPage() {
               <Lock className="w-4 h-4 text-[#F5B800] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="password"
-                placeholder="Entrez trabaf123"
+                placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 className="w-full bg-[#081B38] border-2 border-[#18437E] focus:border-[#F5B800] rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors"
               />
             </div>
-            <p className="text-[11px] text-slate-400 mt-1.5 flex items-center gap-1">
-              <span>Mot de passe unique :</span>
-              <code className="text-[#F5B800] font-mono bg-black/40 px-1.5 py-0.5 rounded">trabaf123</code>
-            </p>
           </div>
 
           {/* Submit */}
@@ -88,7 +84,7 @@ export default function AdminLoginPage() {
                 <span>Vérification...</span>
               </>
             ) : (
-              <span>Accéder au Dashboard</span>
+              <span>Se Connecter</span>
             )}
           </button>
         </form>
