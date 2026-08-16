@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { getImagePath } from '@/lib/image-path';
 
 interface TrabafLogoProps {
   variant?: 'light' | 'dark' | 'full';
@@ -17,12 +18,12 @@ export function TrabafLogo({ variant = 'full', className = '', height = 48, widt
     return (
       <div className={`relative flex items-center ${className}`}>
         <Image
-          src="/images/logo.png"
+          src={getImagePath('/images/logo.png')}
           alt="TRABAF Construction Tunisie"
           width={width}
           height={height}
           priority
-          onError={() => setImgError(true)}
+          onError={() => setImgError(false)}
           className={`object-contain transition-transform duration-300 hover:scale-[1.02] ${
             variant === 'dark' ? 'brightness-0 invert' : ''
           }`}

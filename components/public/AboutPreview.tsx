@@ -5,12 +5,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2, Shield, Target, Lightbulb, Clock } from 'lucide-react';
 import { DataService } from '@/lib/data-service';
+import { getImagePath } from '@/lib/image-path';
 
 export function AboutPreview() {
   const settings = DataService.getCompanySettings();
 
   const values = [
-    { title: 'Qualité R rigoureuse', desc: 'Conformité stricte aux normes de construction tunisiennes et internationales.', icon: Shield },
+    { title: 'Qualité Rigoureuse', desc: 'Conformité stricte aux normes de construction tunisiennes et internationales.', icon: Shield },
     { title: 'Sécurité Maximale', desc: 'Prévention et sécurité exigeante sur tous nos chantiers.', icon: Target },
     { title: 'Respect des Délais', desc: 'Planification rigoureuse pour une livraison ponctuelle.', icon: Clock },
     { title: 'Innovation Technique', desc: 'Utilisation de méthodes modernes et de matériaux durables.', icon: Lightbulb }
@@ -24,7 +25,7 @@ export function AboutPreview() {
           <div className="relative">
             <div className="relative h-[420px] sm:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
               <Image
-                src="/images/hero_banner.jpg"
+                src={getImagePath('/images/hero_banner.jpg')}
                 alt="Chantier TRABAF Construction Tunisie"
                 fill
                 className="object-cover object-center"

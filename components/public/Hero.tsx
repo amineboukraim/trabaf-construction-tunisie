@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Phone, ShieldCheck, HardHat, Building2 } from 'lucide-react';
 import { DataService } from '@/lib/data-service';
+import { getImagePath } from '@/lib/image-path';
 
 export function Hero() {
   const settings = DataService.getCompanySettings();
@@ -15,7 +16,7 @@ export function Hero() {
       {/* ===== AFFICHE OFFICIELLE TRABAF EN PLEIN ===== */}
       <div className="w-full">
         <Image
-          src="/images/hero_bg.png"
+          src={getImagePath('/images/hero_bg.png')}
           alt="TRABAF Construction Tunisie — Affiche Officielle"
           width={1920}
           height={810}
@@ -28,13 +29,13 @@ export function Hero() {
       <div className="bg-[#081B38] py-8 px-4 sm:px-6 lg:px-8 text-center border-b border-[#F5B800]/20">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6">
           {/* Logo officiel */}
-          <div className="shrink-0">
+          <div className="shrink-0 bg-white p-3 rounded-2xl shadow-xl">
             <Image
-              src="/images/logo.png"
+              src={getImagePath('/images/logo.png')}
               alt="TRABAF Construction Logo Officiel"
-              width={180}
-              height={180}
-              className="object-contain rounded-xl shadow-lg"
+              width={200}
+              height={200}
+              className="object-contain max-h-24 w-auto"
             />
           </div>
           <div className="text-left">

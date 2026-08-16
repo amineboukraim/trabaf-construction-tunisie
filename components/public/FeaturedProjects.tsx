@@ -4,8 +4,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { DataService } from '@/lib/data-service';
-import { Project, ProjectCategory } from '@/types';
+import { Project } from '@/types';
 import { MapPin, Calendar, ArrowRight, Search, Tag, Eye } from 'lucide-react';
+import { getImagePath } from '@/lib/image-path';
 
 interface FeaturedProjectsProps {
   showFilters?: boolean;
@@ -121,7 +122,7 @@ export function FeaturedProjects({ showFilters = true, limit }: FeaturedProjects
                   {/* Image Thumbnail */}
                   <div className="relative h-60 w-full overflow-hidden bg-slate-800">
                     <Image
-                      src={project.main_image_url || '/images/hero_bg.png'}
+                      src={getImagePath(project.main_image_url || '/images/hero_bg.png')}
                       alt={project.title}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
