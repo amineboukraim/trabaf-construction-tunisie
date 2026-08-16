@@ -1,2 +1,2 @@
-:HL["/trabaf-construction-tunisie/_next/static/chunks/03x6p-zpblvw6.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"EXXXFWxhlYlPh7yxy4B5S"}
+:HL["/trabaf-construction-tunisie/_next/static/chunks/0715vr4x8g720.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"ZakG48QhmW9Rm8_1cUDM9"}
