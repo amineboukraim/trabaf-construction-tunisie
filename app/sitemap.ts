@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { DataService } from '@/lib/data-service';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://trabaf-construction.tn';
   const projects = DataService.getProjects(true);

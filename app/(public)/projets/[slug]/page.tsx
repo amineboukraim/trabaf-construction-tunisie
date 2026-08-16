@@ -9,6 +9,13 @@ interface ProjectPageProps {
   }>;
 }
 
+export async function generateStaticParams() {
+  const projects = DataService.getProjects();
+  return projects.map((project) => ({
+    slug: project.slug
+  }));
+}
+
 export async function generateMetadata({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = DataService.getProjectBySlug(slug);
