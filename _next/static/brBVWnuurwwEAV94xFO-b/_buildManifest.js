@@ -1,7 +1,12 @@
 self.__BUILD_MANIFEST = {
   "__rewrites": {
     "afterFiles": [],
-    "beforeFiles": [],
+    "beforeFiles": [
+      {
+        "source": "/trabaf-construction-tunisie//_next/:path+",
+        "destination": "/trabaf-construction-tunisie/_next/:path+"
+      }
+    ],
     "fallback": []
   },
   "sortedPages": [
