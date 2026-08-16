@@ -1,6 +1,7 @@
 export type ProjectStatus = 'Terminé' | 'En cours' | 'En étude';
 
 export type ProjectCategory =
+  | 'Piscines'
   | 'Bâtiments'
   | 'Génie civil'
   | 'Travaux publics'

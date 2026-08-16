@@ -15,10 +15,12 @@ import {
   Compass,
   ArrowRight,
   CheckCircle,
-  X
+  X,
+  Waves
 } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactComponentElement<any>> = {
+  Waves: <Waves className="w-7 h-7" />,
   Building2: <Building2 className="w-7 h-7" />,
   HardHat: <HardHat className="w-7 h-7" />,
   Truck: <Truck className="w-7 h-7" />,
@@ -47,11 +49,11 @@ export function ServicesSection({ limit }: { limit?: number }) {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-            Des Services BTP & Génie Civil Sur-Mesure
+            Services Construction & Piscines Sur-Mesure
           </h2>
 
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-            TRABAF Construction couvre l&apos;ensemble du cycle de vie de vos projets de construction avec une rigueur d&apos;exécution exemplaire.
+            TRABAF Construction couvre la réalisation de piscines sur mesure (béton & liner), la construction de bâtiments et le génie civil avec une exigence d&apos;exécution exemplaire.
           </p>
         </div>
 

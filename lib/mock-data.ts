@@ -14,11 +14,11 @@ export const initialCompanySettings: CompanySettings = {
   working_hours: 'Lundi - Vendredi: 08:00 - 17:30 | Samedi: 08:00 - 13:00',
   lat: 36.8065,
   lng: 10.1815,
-  slogan: 'Construire aujourd\'hui, les projets de demain.',
-  description: 'TRABAF Construction Tunisie accompagne vos projets de construction, de génie civil et de bâtiment avec exigence, expertise technique et rigueur professionnelle.',
+  slogan: 'TRABAF: Bâtir Vos Rêves, Créer Votre Oasis | Construction & Piscines sur Mesure.',
+  description: 'TRABAF Construction Tunisie accompagne vos projets de construction, génie civil, bâtiment et création de piscines sur mesure avec exigence, expertise technique et rigueur professionnelle.',
   stats: [
-    { id: '1', label: 'Projets Réalisés', value: 25, prefix: '+', suffix: '', description: 'Projets d\'envergure terminés en Tunisie' },
-    { id: '2', label: 'Années d\'Expérience', value: 12, prefix: '+', suffix: ' ans', description: 'Expertise reconnue en BTP' },
+    { id: '1', label: 'Projets Réalisés', value: 25, prefix: '+', suffix: '', description: 'Bâtiments, génie civil & piscines en Tunisie' },
+    { id: '2', label: 'Années d\'Expérience', value: 12, prefix: '+', suffix: ' ans', description: 'Expertise reconnue en BTP & Piscines' },
     { id: '3', label: 'Collaborateurs & Ingénieurs', value: 85, prefix: '+', suffix: '', description: 'Experts qualifiés et effectif terrain' },
     { id: '4', label: 'Taux de Satisfaction', value: 99, prefix: '', suffix: '%', description: 'Respect strict des délais et de la qualité' }
   ]
@@ -26,13 +26,24 @@ export const initialCompanySettings: CompanySettings = {
 
 export const initialServices: Service[] = [
   {
+    id: 'srv-piscines',
+    title: 'Création & Fabrication de Piscines sur Mesure',
+    slug: 'piscines-sur-mesure',
+    description: 'Conception sur mesure, piscines en béton armé & liner, miroir et débordement. Fabrication, pose, filtration automatisée et aménagement d\'oasis privées.',
+    icon_name: 'Waves',
+    image_url: '/images/piscines_banner.png',
+    display_order: 1,
+    is_active: true,
+    created_at: new Date().toISOString()
+  },
+  {
     id: 'srv-1',
-    title: 'Construction de Bâtiments',
+    title: 'Construction de Bâtiments & Clés en Main',
     slug: 'construction-de-batiments',
-    description: 'Réalisation complète de bâtiments administratifs, commerciaux et tertiaires selon les normes techniques et environnementales les plus exigeantes.',
+    description: 'Réalisation complète de bâtiments administratifs, commerciaux, tertiaires et logements clés en main selon les normes les plus exigeantes.',
     icon_name: 'Building2',
     image_url: '/images/hero_bg.png',
-    display_order: 1,
+    display_order: 2,
     is_active: true,
     created_at: new Date().toISOString()
   },
@@ -40,10 +51,10 @@ export const initialServices: Service[] = [
     id: 'srv-2',
     title: 'Génie Civil & Structures',
     slug: 'genie-civil-structures',
-    description: 'Étude et exécution d\'ouvrages d\'art, fondations spéciales, infrastructures lourdes en béton armé et charpentes métalliques.',
+    description: 'Étude et exécution d\'ouvrages d\'art, fondations spéciales, infrastructures lourdes en béton armé et constructions de structures.',
     icon_name: 'HardHat',
     image_url: '/images/hero_banner.jpg',
-    display_order: 2,
+    display_order: 3,
     is_active: true,
     created_at: new Date().toISOString()
   },
@@ -54,18 +65,18 @@ export const initialServices: Service[] = [
     description: 'Aménagement urbain, terrassement, réseaux divers (VRD), voiries et infrastructures routières pour les collectivités et le secteur privé.',
     icon_name: 'Truck',
     image_url: '/images/hero_bg.png',
-    display_order: 3,
+    display_order: 4,
     is_active: true,
     created_at: new Date().toISOString()
   },
   {
     id: 'srv-4',
-    title: 'Construction Résidentielle',
+    title: 'Construction Résidentielle & Villas',
     slug: 'construction-residentielle',
-    description: 'Conception et édification d\'immeubles de haut standing, complexes résidentiels et villas de luxe avec finitions personnalisées.',
+    description: 'Conception et édification d\'immeubles de haut standing, complexes résidentiels et villas de luxe avec espace piscine personnalisé.',
     icon_name: 'Home',
     image_url: '/images/residential.png',
-    display_order: 4,
+    display_order: 5,
     is_active: true,
     created_at: new Date().toISOString()
   },
@@ -76,7 +87,7 @@ export const initialServices: Service[] = [
     description: 'Bâtiments industriels, usines, entrepôts logistiques, hangars métalliques sur-mesure intégrant contraintes de sécurité et d\'exploitation.',
     icon_name: 'Factory',
     image_url: '/images/industrial.png',
-    display_order: 5,
+    display_order: 6,
     is_active: true,
     created_at: new Date().toISOString()
   },
@@ -87,23 +98,12 @@ export const initialServices: Service[] = [
     description: 'Réhabilitation lourde, modernisation architecturale, renforcement de structures existantes et mise en conformité.',
     icon_name: 'Wrench',
     image_url: '/images/hero_banner.jpg',
-    display_order: 6,
-    is_active: true,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'srv-7',
-    title: 'Travaux de Finition & Aménagement',
-    slug: 'travaux-de-finition',
-    description: 'Revêtements, cloisons, menuiserie, aménagement intérieur et finitions haut de gamme pour espaces professionnels et privés.',
-    icon_name: 'Paintbrush',
-    image_url: '/images/residential.png',
     display_order: 7,
     is_active: true,
     created_at: new Date().toISOString()
   },
   {
-    id: 'srv-8',
+    id: 'srv-7',
     title: 'Études & Ingénierie BTP',
     slug: 'etudes-ingenierie-btp',
     description: 'Assistance à maîtrise d\'ouvrage, métrés, planification BIM, contrôle qualité et suivi technique d\'exécution.',
@@ -117,8 +117,35 @@ export const initialServices: Service[] = [
 
 export const initialProjects: Project[] = [
   {
+    id: 'proj-piscine-1',
+    title: 'Piscine à Débordement & Oasis de Luxe — Projet Démonstration',
+    slug: 'piscine-debordement-oasis-luxe-projet-demonstration',
+    short_desc: 'Conception sur-mesure et fabrication d\'une piscine miroir à débordement béton & liner avec plage immergée et terrasse à Gammarth.',
+    full_desc: 'Ce projet illustre l\'expertise de TRABAF Construction dans la création d\'oasis privées et de piscines sur mesure. Réalisation complète comprenant l\'étude hydraulique, le terrassement, le cuvelage en béton armé, la pose du liner armé, la filtration haut débit et l\'éclairage d\'ambiance.',
+    category: 'Piscines',
+    client: 'Client Résidentiel Privé (Démo)',
+    location_name: 'Gammarth',
+    city: 'Tunis',
+    country: 'Tunisie',
+    lat: 36.9167,
+    lng: 10.3000,
+    year: '2026',
+    duration: '3 mois',
+    surface_area: '120 m²',
+    status: 'Terminé',
+    main_image_url: '/images/piscines_banner.png',
+    gallery_urls: [
+      '/images/piscines_banner.png',
+      '/images/residential.png'
+    ],
+    is_featured: true,
+    is_published: true,
+    display_order: 1,
+    created_at: new Date().toISOString()
+  },
+  {
     id: 'proj-1',
-    title: 'Complexe Administratif Modern — Projet Démonstration',
+    title: 'Complexe Administratif Moderne — Projet Démonstration',
     slug: 'complexe-administratif-moderne-projet-demonstration',
     short_desc: 'Réalisation d\'un immeuble de bureau R+5 de très haut standing avec vitrage structurel et parement moderne à Tunis.',
     full_desc: 'Ce projet d\'exemple illustre la maîtrise de TRABAF Construction dans l\'édification de complexes tertiaires contemporains. L\'ouvrage comprend 5 niveaux de bureaux modulables, un sous-sol de parking sécurisé, un atrium vitré à haute efficacité énergétique, ainsi que des finitions intérieures soignées.',
@@ -141,15 +168,15 @@ export const initialProjects: Project[] = [
     ],
     is_featured: true,
     is_published: true,
-    display_order: 1,
+    display_order: 2,
     created_at: new Date().toISOString()
   },
   {
     id: 'proj-2',
-    title: 'Résidence Panoramique — Projet Démonstration',
+    title: 'Résidence Panoramique avec Espace Aquatique — Projet Démonstration',
     slug: 'residence-panoramique-projet-demonstration',
-    short_desc: 'Ensemble immobilier résidentiel R+6 composé d\'appartements de luxe avec espaces verts à Hammamet.',
-    full_desc: 'Exemple de promotion immobilière résidentielle haut de gamme. Le programme comporte 32 appartements de standing, une piscine collective, des espaces paysagers intégrés et des matériaux locaux de première qualité.',
+    short_desc: 'Ensemble immobilier résidentiel R+6 composé d\'appartements de luxe avec piscine collective et espaces verts à Hammamet.',
+    full_desc: 'Exemple de promotion immobilière résidentielle haut de gamme. Le programme comporte 32 appartements de standing, une piscine collective conçue et posée par nos équipes, des espaces paysagers intégrés et des matériaux locaux de première qualité.',
     category: 'Résidentiel',
     client: 'Promoteur Privé (Démo)',
     location_name: 'Zone Touristique',
@@ -164,17 +191,17 @@ export const initialProjects: Project[] = [
     main_image_url: '/images/residential.png',
     gallery_urls: [
       '/images/residential.png',
-      '/images/hero_bg.png',
-      '/images/hero_banner.jpg'
+      '/images/piscines_banner.png',
+      '/images/hero_bg.png'
     ],
     is_featured: true,
     is_published: true,
-    display_order: 2,
+    display_order: 3,
     created_at: new Date().toISOString()
   },
   {
     id: 'proj-3',
-    title: 'Parc Logistique & Entrepot — Projet Démonstration',
+    title: 'Parc Logistique & Entrepôt — Projet Démonstration',
     slug: 'parc-logistique-entrepot-projet-demonstration',
     short_desc: 'Construction d\'une plateforme logistique industrielle avec charpente métallique et quais de chargement à Sousse.',
     full_desc: 'Un exemple de projet industriel d\'envergure comprenant un hangar métallique haute portée, un sol en béton quartzé à forte résistance, des bureaux d\'administration intégrés et une centrale solaire en toiture.',
@@ -194,33 +221,6 @@ export const initialProjects: Project[] = [
       '/images/industrial.png',
       '/images/hero_banner.jpg'
     ],
-    is_featured: true,
-    is_published: true,
-    display_order: 3,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'proj-4',
-    title: 'Aménagement VRD & Voirie urbaine — Projet Démonstration',
-    slug: 'amenagement-vrd-voirie-urbaine-projet-demonstration',
-    short_desc: 'Travaux publics d\'infrastructures routières, réseaux d\'évacuation des eaux pluviales et éclairage à Ariana.',
-    full_desc: 'Démonstration des savoir-faire en travaux publics. Réalisation de chaussées renforcées, réseaux souterrains d\'assainissement, trottoirs pavés et bordures pour un nouveau quartier d\'affaires.',
-    category: 'Travaux publics',
-    client: 'Municipalité (Démo)',
-    location_name: 'Ennasr 2',
-    city: 'Ariana',
-    country: 'Tunisie',
-    lat: 36.8667,
-    lng: 10.1667,
-    year: '2025',
-    duration: '8 mois',
-    surface_area: '15 000 m²',
-    status: 'Terminé',
-    main_image_url: '/images/hero_banner.jpg',
-    gallery_urls: [
-      '/images/hero_banner.jpg',
-      '/images/hero_bg.png'
-    ],
     is_featured: false,
     is_published: true,
     display_order: 4,
@@ -234,19 +234,9 @@ export const initialMessages: Message[] = [
     full_name: 'Kamel Mansouri',
     email: 'kamel.mansouri@example.com',
     phone: '+216 98 123 456',
-    subject: 'Demande de devis pour construction villa',
-    message: 'Bonjour TRABAF Construction, je souhaiterais obtenir une estimation de devis pour les travaux de gros œuvre et génie civil d\'une villa individuelle R+1 à Gammarth (environ 350 m²). Merci de me recontacter.',
+    subject: 'Demande de devis pour construction villa & piscine',
+    message: 'Bonjour TRABAF, je souhaiterais obtenir une estimation de devis pour les travaux de gros œuvre d\'une villa R+1 ainsi que la fabrication d\'une piscine sur mesure en béton (8x4m) à Gammarth. Merci.',
     status: 'new',
     created_at: new Date(Date.now() - 3600000 * 5).toISOString()
-  },
-  {
-    id: 'msg-2',
-    full_name: 'Sarra Ben Ali',
-    email: 's.benali@company.tn',
-    phone: '+216 22 987 654',
-    subject: 'Projet d\'aménagement d\'entrepôt commercial',
-    message: 'Nous recherchons une entreprise générale de bâtiment spécialisée en structure métallique et dallage industriel pour notre nouveau centre de distribution à Ben Arous.',
-    status: 'read',
-    created_at: new Date(Date.now() - 3600000 * 28).toISOString()
   }
 ];

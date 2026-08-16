@@ -21,6 +21,7 @@ export function FeaturedProjects({ showFilters = true, limit }: FeaturedProjects
 
   const categories: string[] = [
     'Tous',
+    'Piscines',
     'Bâtiments',
     'Génie civil',
     'Travaux publics',
@@ -53,7 +54,7 @@ export function FeaturedProjects({ showFilters = true, limit }: FeaturedProjects
               Nos Réalisations d&apos;Excellence
             </h2>
             <p className="text-slate-300 text-base">
-              Découvrez nos récents projets de construction et d&apos;ingénierie livrés en Tunisie.
+              Découvrez nos récents projets de piscines sur-mesure, de construction et d&apos;ingénierie livrés en Tunisie.
             </p>
           </div>
 
@@ -94,7 +95,7 @@ export function FeaturedProjects({ showFilters = true, limit }: FeaturedProjects
                 <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
-                  placeholder="Rechercher un projet, ville..."
+                  placeholder="Rechercher piscine, bâtiment, ville..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-[#0E2E5C] border border-slate-700 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#F5B800]"
